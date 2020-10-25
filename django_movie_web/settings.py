@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fy2w1(#o)qrvjzvu!z60cp)3dsl921vz56)ehy7pb3)nnxvokm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -219,5 +220,9 @@ RECAPTCHA_PUBLIC_KEY = '6LfRFtUZAAAAAIJr8HEHdkIFrNjnwVOcI77uf1Ml'
 RECAPTCHA_PRIVATE_KEY = '6LfRFtUZAAAAAM4Uhn8MOwYlmoHt6W5DrNya3i_l'
 RECAPTHCA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+# Heroku: Update database configuration from $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 SITE_ID = 1

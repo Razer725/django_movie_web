@@ -1,4 +1,7 @@
-bind = '127.0.0.1:8000'
-workers = 3
-user = "ivan"
-timeout = 120
+def when_ready(server):
+    open('/tmp/app-initialized', 'w').close()
+
+
+bind = 'unix:///tmp/nginx.socket'
+# worker_class = 'gevent'  # not necessary
+timeout = 90  # not necesssary
