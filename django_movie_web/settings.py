@@ -227,6 +227,6 @@ RECAPTCHA_SCORE_THRESHOLD = 0.5
 # DATABASES['default'].update(db_from_env)
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 SITE_ID = 1
